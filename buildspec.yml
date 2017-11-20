@@ -7,12 +7,15 @@ phases:
     commands:
       - apt-get update -y
       - apt-get install -y maven
+      - echo mvn version `mvn --version`
+      - export M2=/usr/local/apache-maven/apache-maven-3.3.9
+      - export PATH=$M2:$PATH
   pre_build:
     commands:
       - echo This is pre_build
   build:
     commands:
-      - echo java -version
+      - echo java `-version`
       - echo Starting build `date`
       - mvn clean install
   post_build:
