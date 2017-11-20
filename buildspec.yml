@@ -1,7 +1,7 @@
 version: 0.1
-#environment_variables:
-  #plaintext:
-    #JAVA_HOME: "/opt/java-8-openjdk-amd64"
+environment_variables:
+  plaintext:
+    JAVA_HOME: "/opt/java-8-openjdk-amd64"
 phases:
   install:
     commands:
@@ -12,6 +12,7 @@ phases:
       - echo This is pre_build
   build:
     commands:
+      - echo java -version
       - echo Starting build `date`
       - mvn clean install
   post_build:
