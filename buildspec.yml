@@ -1,0 +1,12 @@
+version: 0.1
+
+phases:
+     #commands:
+       - mvn package
+       - mvn clean install
+#artifacts:
+  #files:
+    # - location
+    # - location
+  #discard-paths: yes
+  #base-directory: location
