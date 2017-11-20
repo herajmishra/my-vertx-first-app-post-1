@@ -16,5 +16,7 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
+    files:
+    - buildspec.yml
     - target/first-vertx-app.jar
 discard-paths: yes
