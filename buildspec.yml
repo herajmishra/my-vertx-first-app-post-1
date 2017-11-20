@@ -3,13 +3,6 @@ environment_variables:
   plaintext:
     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 phases:
-  install:
-    commands:
-      - apt-get update -y
-      - apt-get install -y maven
-      - export M2=/usr/local/apache-maven/apache-maven-3.3.9
-      - export PATH=$M2:$PATH
-      - echo mvn version mvn --version
   pre_build:
     commands:
       - echo This is pre_build
