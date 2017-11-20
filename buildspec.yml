@@ -11,7 +11,7 @@ pre_build:
 commands:
 - echo This is pre_build
 build:
-commands
+commands:
 - echo Starting build `date`
 - mvn clean package
 post_build:
