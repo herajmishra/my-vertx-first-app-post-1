@@ -1,21 +1,14 @@
 version: 0.1
-environment_variables:
-  plaintext:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
-phases:
-  pre_build:
-    commands:
-      - echo This is pre_build
-  build:
-    commands:
-      - echo java `-version`
-      - echo Starting build `date`
-      - mvn clean install
-  post_build:
-    commands:
-      - echo Build completed on `date`
-artifacts:
-  files:
-    - buildspec.yml
-    - target/my-first-app-1.0-SNAPSHOT.jar
-discard-paths: yes
+os: linux
+files:
+  - source: s3://heraj-first-s3-bucket-tesco/target/d98e959f-8f38-4c19-a85c-f5fbbd9230ee/FirstAWS/target
+    destination: /var/www/html/WordPress
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/run_java_app.sh
+      timeout: 300
+      runas: root
